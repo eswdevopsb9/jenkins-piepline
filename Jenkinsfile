@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Comment
-                echo "Hello from Build step"
+                echo "Hello from Build step modified by Eswar"
             }
         }
         stage('Test') {
