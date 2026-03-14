@@ -13,7 +13,7 @@ pipeline {
         }
         stage ('mavencustom') {
             tools {
-                java 'jdk-17'
+                jdk 'jdk-17'
             }
             steps {
                 echo "Welcome to Maven section, this is custom java"
