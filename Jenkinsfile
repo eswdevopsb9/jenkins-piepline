@@ -1,4 +1,3 @@
-1.groovy
 //pipeline code
 pipeline {
     agent {
