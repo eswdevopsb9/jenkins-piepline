@@ -5,13 +5,13 @@ pipeline {
         maven 'maven-3.8.9'
     }
     stages {
-        stage (maven) {
+        stage ('mavendefault') {
             steps {
                 echo "Welcome to Maven section, this is default java"
                 sh 'mvn --version'
             }
         }
-        stage (maven) {
+        stage ('mavencustom') {
             tools {
                 java 'jdk-17'
             }
