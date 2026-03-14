@@ -1,21 +1,18 @@
-//pipeline code
 pipeline {
-    agent {
-        label 'app-slave'
-    }
+    agent any
     stages {
-        stage ('build') {
+        stage ('First stage') {
             steps {
-                //I want to write some message
-                echo "Hello from build step using piepline"
+            echo "************* Printing the hostname where this stage is running ************"
+            sh 'hostname -i'
             }
+
         }
-        stage ('hostname') {
+        stage ('Second stage'){
             steps {
-                sh 'hostname -i'
-                // sh 'mvn package'
-                // sh 'docker build'
+            echo "************* Printing the hostname where this stage is running ************"
+            sh 'hostname -i'
             }
         }
     }
-} 
+}
