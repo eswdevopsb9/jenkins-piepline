@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     stages {
         stage ('build stage') {
             steps {
@@ -7,7 +8,7 @@ pipeline {
                 sh 'hostname -i'
             }
         }
-        stage ('groovy stage'){
+        stage ('groovy stage') {
             steps {
                 script {
                     //logic
@@ -15,7 +16,7 @@ pipeline {
                     //def variable = "value"
                     def course = "k8s"
                     //there are various ways to call variables
-                    if (course = "k8s")
+                    if (course == "k8s")
                     println("Thanks for enrolling into ${course} course")
                     else
                     println("Do enroll into ${course} course")
