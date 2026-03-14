@@ -1,13 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage ('Build') {
+        stage (maven) {
             steps {
-                retry (3) {
-                    echo "This is a Retry example"
-                    //replicate a failure
-                     error "This is an error from Retry example"
-                }
+                echo "Welcome to Maven section printing maven version"
+                sh 'mvn --version'
             }
         }
     }
