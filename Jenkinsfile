@@ -1,27 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage ('build stage') {
-            steps {
-                //Declarative code
-                echo "This is a build stage"
-                sh 'hostname -i'
-            }
-        }
-        stage ('groovy stage') {
-            steps {
-                script {
-                    //logic
-                    //variable definition
-                    //def variable = "value"
-                    def course = "Docker"
-                    //there are various ways to call variables
-                    if (course == "Kubernetes")
-                    println("Thanks for enrolling into ${course} course")
-                    else
-                    println("Do enroll into Kubernetes course")
-                }
-            }
+        stage ('Build')
+        steps {
+            echo "This is a Retry example"
+            //replicate a failure
+            error "This is an error from Retry example"
         }
     }
 }
