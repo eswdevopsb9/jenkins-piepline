@@ -16,10 +16,10 @@ pipeline {
                     //def variable = "value"
                     def course = "Docker"
                     //there are various ways to call variables
-                    if (course == "k8s")
+                    if (course == "Kubernetes")
                     println("Thanks for enrolling into ${course} course")
                     else
-                    println("Do enroll into ${course} course")
+                    println("Do enroll into Kubernetes course")
                 }
             }
         }
