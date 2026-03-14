@@ -7,7 +7,16 @@ pipeline {
     stages {
         stage (maven) {
             steps {
-                echo "Welcome to Maven section printing maven version"
+                echo "Welcome to Maven section, this is default java"
+                sh 'mvn --version'
+            }
+        }
+        stage (maven) {
+            tools {
+                java 'jdk-17'
+            }
+            steps {
+                echo "Welcome to Maven section, this is custom java"
                 sh 'mvn --version'
             }
         }
