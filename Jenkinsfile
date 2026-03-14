@@ -1,21 +1,24 @@
+1.groovy
+//pipeline code
+
 pipeline {
-    agent any
+    agent {
+        label 'app-slave'
+    }
+    
     stages {
-        stage('Build') {
+        stage ('build') {
             steps {
-                // Comment
-                echo "Hello from Build step modified by Eswar"
+                //I want to write some message
+                echo "Hello from build step using piepline"
             }
         }
-        stage('Test') {
+        stage ('hostname') {
             steps {
-                echo "Hello from Test step"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo "Hello from Deploy step"
+                sh 'hostname -i'
+                // sh 'mvn package'
+                // sh 'docker build'
             }
         }
     }
-}
+} 
