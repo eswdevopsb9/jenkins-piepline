@@ -1,11 +1,9 @@
 1.groovy
 //pipeline code
-
 pipeline {
     agent {
         label 'app-slave'
     }
-    
     stages {
         stage ('build') {
             steps {
