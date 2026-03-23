@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage ('Printing data') {
             when {
-                environment name: 'DEPLOY_TO', value: 'Production'
+                environment name: 'DEPLOY_TO', value: 'Dev'
                 //branch validation
                 //parameters based validation (100%)
             }
