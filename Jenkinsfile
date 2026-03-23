@@ -21,7 +21,11 @@ pipeline {
         }
         }
         stage ('Second stage') {
-                    steps {
+            environment {
+                name = "Anitha"
+                cloud = "GCP"
+                }
+                steps {
             echo "*********Welcome to ${name}*********"
             echo "*********You are enrolled for ${course} course*********"
             echo "*********You are certified CKA*********"
