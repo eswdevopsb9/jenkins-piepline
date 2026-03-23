@@ -14,17 +14,17 @@ pipeline {
             cloud = "AWS"
         }
         steps {
-            echo +++++"Welcome to ${name}"+++++
-            echo +++++"You are enrolled for ${course} course"+++++
-            echo +++++"You are certified in CKA"+++++
-            echo +++++"${name} certified in ${cloud} cloud"+++++
+            echo *********"Welcome to ${name}"*********
+            echo *********"You are enrolled for ${course} course"*********
+            echo *********"You are certified in CKA"*********
+            echo *********"${name} certified in ${cloud} cloud"*********
         }
         stage ('Second stage')
         steps {
-            echo +++++"Welcome to ${name}"+++++
-            echo +++++"You are enrolled for ${course} course"+++++
-            echo +++++"You are certified CKA"+++++
-            echo +++++"${name} certified in ${cloud} cloud"+++++
+            echo *********"Welcome to ${name}"*********
+            echo *********"You are enrolled for ${course} course"*********
+            echo *********"You are certified CKA"*********
+            echo *********"${name} certified in ${cloud} cloud"*********
         }
     }
 }
