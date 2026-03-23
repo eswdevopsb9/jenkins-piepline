@@ -8,7 +8,7 @@ pipeline {
         course = "Docker and K8s"
     }
     stages {
-        stage ('First stage')
+        stage ('First stage') {
         //stage level pipeline
         environment {
             cloud = "AWS"
@@ -19,12 +19,14 @@ pipeline {
             echo "*********You are certified in CKA*********"
             echo "*********${name} certified in ${cloud} cloud*********"
         }
-        stage ('Second stage')
-        steps {
+        }
+        stage ('Second stage') {
+                    steps {
             echo "*********Welcome to ${name}*********"
             echo "*********You are enrolled for ${course} course*********"
             echo "*********You are certified CKA*********"
             echo "*********${name} certified in ${cloud} cloud*********"
+        }
         }
     }
 }
