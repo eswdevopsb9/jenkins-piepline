@@ -3,18 +3,17 @@ pipeline {
         label 'app-slave'
     }
     environment {
-        //key=value
         DEPLOY_TO = 'Production'
     }
     stages {
-        stage ('Printing data') {
-            when {
-                environment name: 'DEPLOY_TO', value: 'Dev'
-                //branch validation
-                //parameters based validation (100%)
-            }
+        stage ('DevDeploy') {
             steps {
-                echo "*******Printing some data*********"
+                echo "******Deploy in Dev Environment*******"
+            }
+        }
+        stage ('ProdDeploy') {
+            steps {
+                echo "******Deploy in Prod Environment*******"
             }
         }
     }
