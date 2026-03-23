@@ -1,17 +1,30 @@
 pipeline {
-    agent any
+    agent {
+        label 'app-slave'
+    }
+    //global pipeline
     environment {
-        //key = value
-        name = "Mahesh"
-        course = "Docker and k8s"
+        name = "Eswar"
+        course = "Docker and K8s"
     }
     stages {
-        stage ('Build') {
-            steps {
-                echo "Welcome Mr ${name}"
-                echo "You are enrolled for ${course} course"
-                echo "${name} is certified in CKA"
-            }
+        stage ('First stage')
+        //stage level pipeline
+        environment {
+            cloud = "AWS"
+        }
+        steps {
+            echo +++++ "Welcome to ${name}"
+            echo +++++ "You are enrolled for ${course} course"
+            echo +++++ "You are certified in CKA"
+            echo +++++ "${name} certified in ${cloud} cloud"
+        }
+        stage ('Second stage')
+        steps {
+            echo +++++ "Welcome to ${name}"
+            echo +++++ "You are enrolled for ${course} course"
+            echo +++++ "You are certified CKA"
+            echo +++++ "${name} certified in ${cloud} cloud"
         }
     }
 }
