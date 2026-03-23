@@ -12,9 +12,9 @@ pipeline {
                 environment name: 'DEPLOY_TO', value: 'Production'
                 //branch validation
                 //parameters based validation (100%)
-                }
-                steps {
-                    echo "*******Printing some data*********"
+            }
+            steps {
+                echo "*******Printing some data*********"
             }
         }
     }
