@@ -2,35 +2,20 @@ pipeline {
     agent {
         label 'app-slave'
     }
-    //global pipeline
     environment {
-        name = "Eswar"
-        course = "Docker and K8s"
+        //key=value
+        DEPLOY_TO = 'Production'
     }
     stages {
-        stage ('First stage') {
-        //stage level pipeline
-        environment {
-            cloud = "AWS"
-        }
-        steps {
-            echo "*********Welcome to ${name}*********"
-            echo "*********You are enrolled for ${course} course*********"
-            echo "*********You are certified in CKA*********"
-            echo "*********${name} certified in ${cloud} cloud*********"
-        }
-        }
-        stage ('Second stage') {
-            environment {
-                name = "Anitha"
-                cloud = "GCP"
+        stage ('Printing data') {
+            when {
+                environment name: 'DEPLOY_TO', value: 'Production'
+                //branch validation
+                //parameters based validation (100%)
                 }
                 steps {
-            echo "*********Welcome to ${name}*********"
-            echo "*********You are enrolled for ${course} course*********"
-            echo "*********You are certified CKA*********"
-            echo "*********${name} certified in ${cloud} cloud*********"
-        }
+                    echo "*******Printing some data*********"
+            }
         }
     }
 }
