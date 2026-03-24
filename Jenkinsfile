@@ -20,13 +20,13 @@ pipeline {
         )
         choice (
             name: 'CHOICE',
-            choices: ['One', 'Two', 'Three']
+            choices: ['One', 'Two', 'Three'],
             description: 'Pick something'
         )
         stages {
             stage ('printstage') {
                 echo "Welcome to ${params.PERSON}"
-                echo "Your Biography is: ${params.BIOGRAPHY}",
+                echo "Your Biography is: ${params.BIOGRAPHY}"
                 echo "You toggled ${params.TOGGLE}"
                 echo "You have choosen ${params.CHOICE}"
             }
