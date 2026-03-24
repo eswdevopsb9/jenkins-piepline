@@ -1,6 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage ('Build') {
+            steps {
+                echo "***Building the application***"
+            }
+        }
+        stage ('Sonar') {
+            steps {
+                echo "***Running sonar scans***"
+            }
+        }
     }
     post {
         always {
