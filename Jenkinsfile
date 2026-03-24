@@ -6,14 +6,9 @@ pipeline {
                 echo "***Building the application***"
             }
         }
-        stage ('Sonar') {
-            steps {
-                echo "***Running sonar scans***"
-            }
-        }
         stage ('ubuntu version') {
             steps {
-                sh 'lsb_released'
+                sh 'lsb_release'
             }
         }
     }
