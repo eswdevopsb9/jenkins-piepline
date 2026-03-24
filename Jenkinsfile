@@ -38,7 +38,7 @@ pipeline {
             input {
                 message "Are you sure want to deploy to prod environment?"
                 ok 'Yes'
-                submitter 'i27academy', 'sreuser' //only users with these usernames can approve the deployment
+                submitter 'i27academy, sreuser' //only users with these usernames can approve the deployment
             }
             steps {
                 echo "***Deploying to Prod environment***"
