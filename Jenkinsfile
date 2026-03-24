@@ -1,36 +1,39 @@
 pipeline {
-    agent {
-        label 'app-slave'
-    }
-    parameters {
-        string (
-            name: 'PERSON',
-            defaultValue: 'Eswar',
-            description: 'Who should I say hello to?'
-        )
-        text (
-            name: 'BIOGRAPHY',
-            defaultValue: '',
-            description: 'Enter some information about the person'
-        )
-        booleanParam ( //true or false
-            name: 'TOGGLE',
-            defaultValue: true,
-            description: 'Toggle this value'
-        )
-        choice (
-            name: 'CHOICE',
-            choices: ['One', 'Two', 'Three'],
-            description: 'Pick something'
-        )
-    }
+    agent any
     stages {
-        stage ('printstage') {
+        stage ('Build') {
             steps {
-                echo "Welcome to ${params.PERSON}"
-                echo "Your Biography is: ${params.BIOGRAPHY}"
-                echo "You toggled ${params.TOGGLE}"
-                echo "You have choosen ${params.CHOICE}"
+                echo "***Building the application***"
+            }
+        }
+        stage ('Sonar') {
+            steps {
+                echo "***Running sonar scans***"
+            }
+        }
+        stage ('DockerBuild&Push') {
+            steps {
+                echo "***Building and pushing Docker images***"
+            }
+        }
+        stage ('DeployToDev') {
+            steps {
+                echo "***Deploying to Dev environment"
+            }
+        }
+        stage ('DeployToTest') {
+            steps {
+                echo "***Deploying to Test environment***"
+            }
+        }
+        stage ('DeployToStage') {
+            steps {
+                echo "***Deploying to Stage environment***"
+            }
+        }
+        stage ('DeployToProd') {
+            steps {
+                echo "***Deploying to Prod environment***"
             }
         }
     }
