@@ -2,18 +2,25 @@ pipeline {
     agent {
         label 'app-slave'
     }
+    environment {
+        DEPLOY_TO = 'production'
+    }
     stages {
-        stage ('Example Build') {
+        stage ('DeployToDev') {
             steps {
-                echo "***Hello World***"
+            echo "Deploying to Dev environment"
             }
         }
-        stage ('Example Deploy') {
+        stage ('DeployToProd') {
             when {
-                expression {BRANCH_NAME ==~ /(production|staging)/}
+                anyOf {
+                    branch 'production'
+                    //expression when {BRANCH_NAME ==~ /(production|staging)/}
+                    environment name: 'DEPLOY_TO', value: 'production'
+                }
             }
             steps {
-                echo "***Deploying***"
+                echo "Deploying to Prod environment"
             }
         }
     }
