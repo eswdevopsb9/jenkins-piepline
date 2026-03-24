@@ -13,7 +13,7 @@ pipeline {
         }
         stage ('ubuntu version') {
             steps {
-                sh 'lsb_release'
+                sh 'lsb_released'
             }
         }
     }
