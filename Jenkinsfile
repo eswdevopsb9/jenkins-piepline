@@ -11,9 +11,9 @@ pipeline {
         text (
             name: 'BIOGRAPHY',
             defaultValue: '',
-            description: 'Enter some information about the PERSON'
+            description: 'Enter some information about the person'
         )
-        booleanparam (
+        booleanParam ( //true or false
             name: 'TOGGLE',
             defaultValue: true,
             description: 'Toggle this value'
@@ -23,8 +23,10 @@ pipeline {
             choices: ['One', 'Two', 'Three'],
             description: 'Pick something'
         )
-        stages {
-            stage ('printstage') {
+    }
+    stages {
+        stage ('printstage') {
+            steps {
                 echo "Welcome to ${params.PERSON}"
                 echo "Your Biography is: ${params.BIOGRAPHY}"
                 echo "You toggled ${params.TOGGLE}"
