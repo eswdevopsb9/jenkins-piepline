@@ -32,6 +32,14 @@ pipeline {
             }
         }
         stage ('DeployToProd') {
+            options {
+                timeout(time:300, unit:'SECONDS') //set time for the approval step
+            }
+            input {
+                message "Are you sure want to deploy to prod environment?"
+                ok 'Yes'
+                submitter 'i27academy', 'sreuser' //only users with these usernames can approve the deployment
+            }
             steps {
                 echo "***Deploying to Prod environment***"
             }
