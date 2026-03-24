@@ -11,10 +11,15 @@ pipeline {
                 echo "***Running sonar scans***"
             }
         }
+        stage ('ubuntu version') {
+            steps {
+                sh 'lsb_release'
+            }
+        }
     }
     post {
         always {
-            echo "***This always run regarless of the build result***"
+            echo "***This always run regardless of the build result***"
         }
         success {
             echo "***This will run if the build is successful***"
